@@ -10,12 +10,17 @@ object List {
     case Nil => 0
     case Cons(x, xs) => x + sum(xs)
   }
-  
+
   def product(ds: List[Double]): Double = ds match {
     case Nil => 1d
     case Cons(0d, _) => 0d
     case Cons(x, xs) => x * product(xs)
   }
-  
+
   def apply[A](as: A*): List[A] = if (as.isEmpty) Nil else Cons(as.head, apply(as.tail: _*))
+  
+  def setHead[A](xs: List[A], head: A): List[A] = xs match {
+    case Nil => Cons(head, Nil)
+    case Cons(_, t) => Cons(head, t)
+  }
 }
