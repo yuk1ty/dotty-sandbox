@@ -1,0 +1,24 @@
+### https://raw.github.com/github/gitignore/994f99fc353f523dfe5633067805a1dd4a53040f/Scala.gitignore
+
+*.class
+*.log
+
+.idea
+.vscode
+
+### https://raw.github.com/github/gitignore/994f99fc353f523dfe5633067805a1dd4a53040f/Global/SBT.gitignore
+
+# Simple Build Tool
+# http://www.scala-sbt.org/release/docs/Getting-Started/Directories.html#configuring-version-control
+
+dist/*
+target/
+lib_managed/
+src_managed/
+project/boot/
+project/plugins/project/
+.history
+.cache
+.lib/
+
+
