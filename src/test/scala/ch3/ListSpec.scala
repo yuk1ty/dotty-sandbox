@@ -51,4 +51,11 @@ class ListSpec extends AnyFunSuite {
     val actual = List.dropWhile(objective, _ % 2 != 0)
     assert(actual == Cons(2, Cons(3, Cons(4, Nil))))
   }
+
+  test("concat lists") {
+    val a1 = List(1, 2, 3)
+    val a2 = List(4, 5, 6)
+    val actual = List.append(a1, a2)
+    assert(actual == Cons(1, Cons(2, Cons(3, Cons(4, Cons(5, Cons(6, Nil)))))))
+  }
 }
