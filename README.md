@@ -1,9 +1,14 @@
-## sbt project compiled with Dotty
+## dotty-sandbox
+Try to rewrite codes by dotty in the book "Functional Programming in Scala". But not fully. This is for a private project just learning new things of dotty. I'm planning to rewrite major things about FP (List, Option, Monoids, Monads, etc).
 
-### Usage
-
-This is a normal sbt project, you can compile code with `sbt compile` and run it
-with `sbt run`, `sbt console` will start a Dotty REPL.
-
-For more information on the sbt-dotty plugin, see the
-[dotty-example-project](https://github.com/lampepfl/dotty-example-project/blob/master/README.md).
+### Lists
+- [ ] List
+- [ ] Tree
+- [ ] Option
+- [ ] Par
+- [ ] Parser
+- [ ] Monoid
+- [ ] Functor, Applicative
+- [ ] Monad
+- [ ] IO
+- [ ] State
