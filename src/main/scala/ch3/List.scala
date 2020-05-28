@@ -41,4 +41,15 @@ object List {
     case Nil => a2
     case Cons(h, t) => Cons(h, append(t, a2))
   }
+  
+  def foldRight[A, B](as: List[A], z: B)(f: (A, B) => B): B = as match {
+    case Nil => z
+    case Cons(x, xs) => f(x, foldRight(xs, z)(f))
+  }
+  
+  def map[A, B](as: List[A])(f: A => B): List[B] = 
+    foldRight(as, Nil: List[B])((h, t) => Cons(f(h), t))
+  
+  def flatMap[A, B](as: List[A])(f: A => List[B]): List[B] = 
+    foldRight(map(as)(f), Nil: List[B])(append)
 }

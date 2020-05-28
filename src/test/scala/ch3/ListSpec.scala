@@ -58,4 +58,22 @@ class ListSpec extends AnyFunSuite {
     val actual = List.append(a1, a2)
     assert(actual == Cons(1, Cons(2, Cons(3, Cons(4, Cons(5, Cons(6, Nil)))))))
   }
+  
+  test("foldRight function") {
+    val l = List(1, 2, 3)
+    val actual = List.foldRight(l, 0)(_ + _)
+    assert(actual == 6)
+  }
+  
+  test("map function") {
+    val l = List(1, 2, 3)
+    val actual = List.map(l)(_.toString)
+    assert(actual == Cons("1", Cons("2", Cons("3", Nil))))
+  }
+  
+  test("flatMap function") {
+    val l = List(List(1, 2, 3))
+    val actual = List.flatMap(l)(l => l)
+    assert(actual == Cons(1, Cons(2, Cons(3, Nil))))
+  }
 }
