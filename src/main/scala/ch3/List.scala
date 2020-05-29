@@ -1,7 +1,7 @@
 package ch3
 
 enum List[+A] {
-  case Cons[+A](head: A, tail: List[A]) extends List[A]
+  case Cons(head: A, tail: List[A])
   case Nil
 }
 

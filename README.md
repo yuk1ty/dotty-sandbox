@@ -4,7 +4,7 @@ Try to rewrite codes by [dotty](https://dotty.epfl.ch/) in the book "Functional 
 ### Lists
 - [x] List
 - [x] Tree
-- [ ] Option
+- [x] Option
 - [ ] Par
 - [ ] Parser
 - [ ] Monoid

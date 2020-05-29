@@ -1,8 +1,8 @@
 package ch3
 
 enum Tree[+A] {
-  case Leaf[A](value: A) extends Tree[A]
-  case Branch[A](left: Tree[A], right: Tree[A]) extends Tree[A]
+  case Leaf(value: A)
+  case Branch(left: Tree[A], right: Tree[A])
 }
 
 object Tree {
