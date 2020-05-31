@@ -1,6 +1,6 @@
-package ch3
+package ch4
 
-import ch3.List._
+import ch4.Option
 
 enum Option[+A] {
   case Some(a: A)
@@ -31,6 +31,9 @@ enum Option[+A] {
 }
 
 object Option {
+  import ch3.List
+  import ch3.List._
+  
   def map2[A, B, C](a: Option[A], b: Option[B])
                    (f: (A, B) => C): Option[C] =
     a.flatMap(a => b.map(b => f(a, b)))
