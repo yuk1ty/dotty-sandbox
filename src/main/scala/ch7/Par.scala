@@ -55,4 +55,6 @@ object Par {
   
   def equal[A](e: ExecutorService)(a: Par[A], b: Par[A]): Boolean =
     a(e).get == b(e).get
+  
+  def delay[A](fa: => Par[A]): Par[A] = es => fa(es)
 }

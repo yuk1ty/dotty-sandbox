@@ -31,4 +31,34 @@ class ParSpec extends AnyFunSuite {
     // substitute b for unit a on both sides
     assert(equal(ec)(map(b)(identity), b))
   }
+  
+  ignore("this will be made to deadlock") {
+    import ch7.Par._
+    val a = lazyUnit(42 + 1) // make fork
+    val s = Executors.newFixedThreadPool(1)
+    println(equal(s)(a, fork(a))) // have fork and create another fork on the same thread
+  }
+  
+  test("testing extension methods of Nonblockng version") {
+    import ch7.Nonblocking._
+    val a = lazyUnit(1)
+    val b = lazyUnit(2)
+    val stringify: Int => String = _.toString
+    
+    // testing extension ops
+    // call extension map
+    a map stringify
+    // call extension flatMap
+    for {
+      v1 <- a
+      v2 <- b
+    } yield v1 + v2 
+  }
+  
+  test("this will not be made to deadlock") {
+    import ch7.Nonblocking._
+    val a = lazyUnit(42 + 1)
+    val s = Executors.newFixedThreadPool(1)
+    assert(equal(s)(a, fork(a)))
+  }
 }
