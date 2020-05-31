@@ -5,10 +5,10 @@ Try to rewrite codes by [dotty](https://dotty.epfl.ch/) in the book "Functional 
 - [x] List
 - [x] Tree
 - [x] Option
-- [ ] Par
+- [x] Par
 - [ ] Parser
 - [ ] Monoid
 - [ ] Functor, Applicative
-- [ ] Monad
+- [x] Monad
 - [ ] IO
 - [ ] State
