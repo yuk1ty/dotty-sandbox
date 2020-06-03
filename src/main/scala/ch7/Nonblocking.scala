@@ -58,6 +58,23 @@ object Nonblocking {
   def equal[A](e: ExecutorService)(a: Par[A], b: Par[A]): Boolean =
     run(e)(a) == run(e)(b)
   
+  def choice[A](cond: Par[Boolean])(t: Par[A], f: Par[A]): Par[A] =
+    es => new Future[A] {
+      override def apply(k: A => Unit): Unit = cond(es) { b =>
+        if b then eval(es) { t(es)(k) }
+        else eval(es) { f(es)(k) }
+      }
+    }
+  
+  def choiceN[A](n: Par[Int])(choices: List[Par[A]]): Par[A] =
+    es => new Future[A] {
+      override def apply(k: A => Unit): Unit = 
+        n(es) { idx => eval(es) { choices(idx)(es)(k) } }
+    }
+  
+  def choiceViaChoiceN[A](cond: Par[Boolean])(t: Par[A], f: Par[A]): Par[A] =
+    choiceN(map(cond)(next => if next then 0 else 1))(List(t, f))
+  
   extension ops {
     def [A, B](o: Par[A]) map (f: A => B): Par[B] = Nonblocking.map(o)(f)
     def [A, B](o: Par[A]) flatMap (f: A => Par[B]): Par[B] = Nonblocking.flatMap(o)(f)
