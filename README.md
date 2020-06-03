@@ -11,4 +11,4 @@ Try to rewrite codes by [dotty](https://dotty.epfl.ch/) in the book "Functional 
 - [ ] Functor, Applicative
 - [x] Monad
 - [ ] IO
-- [ ] State
+- [x] State
