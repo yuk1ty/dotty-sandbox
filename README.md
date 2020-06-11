@@ -8,7 +8,7 @@ Try to rewrite codes by [dotty](https://dotty.epfl.ch/) in the book "Functional 
 - [x] Par
 - [ ] Parser
 - [ ] Monoid
-- [ ] Functor, Applicative
+- [x] Functor, Applicative
 - [x] Monad
 - [ ] IO
 - [x] State
