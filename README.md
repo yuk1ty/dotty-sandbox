@@ -7,7 +7,7 @@ Try to rewrite codes by [dotty](https://dotty.epfl.ch/) in the book "Functional 
 - [x] Option
 - [x] Par
 - [ ] Parser
-- [ ] Monoid
+- [x] Monoid
 - [x] Functor, Applicative
 - [x] Monad
 - [ ] IO
